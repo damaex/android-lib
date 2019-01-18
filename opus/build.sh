@@ -76,7 +76,7 @@ do
 	fi
 	
 	#run make with all system threads
-    make -j$(nproc --all)
+    make -s -j$(nproc --all)
 	
 	if [ $? -ne 0 ]; then
 		echo "Error executing make for platform:${ANDROID_TARGET_PLATFORM}"
