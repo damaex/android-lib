@@ -1,7 +1,7 @@
 # android-lib
 [![Build Status](https://travis-ci.org/damaex/android-lib.svg?branch=master)](https://travis-ci.org/damaex/android-lib)
 
-build all external libs for android (unix based)
+prebuild some libs for android (unix based)
 
 ## libraries
 - openssl 1.1.1a
