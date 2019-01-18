@@ -103,7 +103,7 @@ done
 
 #compress
 cd ${OUTPUT_DIR}
-tar -czvf ../openssl-android.tar.gz *
+tar -czvf ../../build/${OPENSSL_FULL_VERSION}-android.tar.gz *
 cd ..
 
 #remove archive

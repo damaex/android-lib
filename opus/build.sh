@@ -102,7 +102,7 @@ done
 
 #compress
 cd ${OUTPUT_DIR}
-tar -czvf ../opus-android.tar.gz *
+tar -czvf ../../build/${OPUS_FULL_VERSION}-android.tar.gz *
 cd ..
 
 #remove archive

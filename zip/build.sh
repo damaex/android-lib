@@ -81,7 +81,7 @@ cd ..
 
 #compress
 cd ${OUTPUT_DIR}
-tar -czvf ../zip-android.tar.gz *
+tar -czvf ../../build/${ZIP_FULL_VERSION}-android.tar.gz *
 cd ..
 
 #remove folder
