@@ -6,7 +6,7 @@ addons:
   apt:
     packages:
       - cmake
-	  - build-essential
+      - build-essential
 
 before_install:
   - wget https://dl.google.com/android/repository/android-ndk-r19-linux-x86_64.zip
@@ -15,4 +15,4 @@ before_install:
   - $ANDROID_NDK/ndk-build --version
 
 script:
-    - bash build.sh
+  - bash build.sh
