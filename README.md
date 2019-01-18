@@ -3,7 +3,7 @@
 
 build all external libs for android (unix based)
 
-##libraries
+## libraries
 - openssl 1.1.1a
 - opus-1.3
 - libzip (ff55682b2cb85f3bd53813cddc7c6afb94c7572c)
