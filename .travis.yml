@@ -1,0 +1,15 @@
+language: android
+dist: xenial
+sudo: required
+
+install: make cmake
+
+android:
+  components:
+    - tools
+    - platform-tools
+    - ndk-bundle
+
+script:
+    - export ANDROID_NDK=$ANDROID_HOME/ndk-bundle
+    - bash build.sh
