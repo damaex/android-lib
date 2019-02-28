@@ -2,7 +2,7 @@
 
 ANDROID_API=16
 ANDROID_API_64=21
-OPENSSL_FULL_VERSION="openssl-1.1.1a"
+OPENSSL_FULL_VERSION="openssl-1.1.1b"
 
 #create output dir
 OUTPUT_DIR="build"
