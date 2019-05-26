@@ -1,27 +1,18 @@
-#! /usr/bin/env bash
+﻿#! /usr/bin/env bash
 
-#ZIP_FULL_VERSION="libzip-1.5.1"
-ZIP_FULL_VERSION="libzip"
+ANDROID_API=16
+ANDROID_API_64=21
+ZIP_FULL_VERSION="libzip-1.5.2"
 
 #create output dir
 OUTPUT_DIR="$(pwd)/build"
 rm -rf ${OUTPUT_DIR}
 mkdir -p ${OUTPUT_DIR}
 
-#configure options
-#ZIP_CONFIGURE_OPTIONS=""
-
 #Download
-#if [ ! -f "${ZIP_FULL_VERSION}.tar.gz" ]; then
-#    wget https://libzip.org/download/${ZIP_FULL_VERSION}.tar.gz
-#fi
-
-#clone git repository
-git clone https://github.com/nih-at/libzip.git
-
-cd libzip
-git reset --hard ff55682b2cb85f3bd53813cddc7c6afb94c7572c
-cd ..
+if [ ! -f "${ZIP_FULL_VERSION}.tar.gz" ]; then
+    wget https://libzip.org/download/${ZIP_FULL_VERSION}.tar.gz
+fi
 
 #check Android NDK
 if [ ! ${ANDROID_NDK} ]; then
@@ -30,28 +21,34 @@ if [ ! ${ANDROID_NDK} ]; then
 fi
 
 #extract
-#tar -xvzf ${ZIP_FULL_VERSION}.tar.gz
-#unzip ${ZIP_FULL_VERSION}.zip
+tar -xvzf ${ZIP_FULL_VERSION}.tar.gz
 
 #move to zip folder
 cd ${ZIP_FULL_VERSION};
 
 for ANDROID_TARGET_PLATFORM in armeabi-v7a arm64-v8a x86 x86_64
 do
-	echo "Building libzip.a for ${ANDROID_TARGET_PLATFORM}"
-	
 	mkdir -p "build-${ANDROID_TARGET_PLATFORM}"
 	cd "build-${ANDROID_TARGET_PLATFORM}"
+	
+	if [ "$ANDROID_TARGET_PLATFORM" == "armeabi-v7a" ] || [ "$ANDROID_TARGET_PLATFORM" == "x86" ] ; then
+		ANDROID_API_VERSION=${ANDROID_API}
+	else
+		ANDROID_API_VERSION=${ANDROID_API_64}
+	fi
+	
+	echo "Building libzip.a for ${ANDROID_TARGET_PLATFORM}"
+	echo "using API-Level ${ANDROID_API_VERSION}"
 	
 	#run configuration for target platform
 	cmake -DCMAKE_TOOLCHAIN_FILE=${ANDROID_NDK}/build/cmake/android.toolchain.cmake \
 		-DCMAKE_INSTALL_PREFIX:PATH=${OUTPUT_DIR}/${ANDROID_TARGET_PLATFORM} \
 		-DANDROID_ABI=${ANDROID_TARGET_PLATFORM} \
+		-DANDROID_PLATFORM=${ANDROID_API_VERSION} \
 		-DENABLE_OPENSSL:BOOL=OFF \
 		-DENABLE_COMMONCRYPTO:BOOL=OFF \
 		-DENABLE_GNUTLS:BOOL=OFF \
 		-DENABLE_MBEDTLS:BOOL=OFF \
-		-DENABLE_OPENSSL:BOOL=OFF \
 		-DENABLE_WINDOWS_CRYPTO:BOOL=OFF \
 		-DBUILD_TOOLS:BOOL=OFF \
 		-DBUILD_REGRESS:BOOL=OFF \
@@ -88,4 +85,4 @@ cd ..
 rm -rf ${ZIP_FULL_VERSION}
 
 #remove archive
-#rm ${ZIP_FULL_VERSION}.tar.gz
+rm ${ZIP_FULL_VERSION}.tar.gz

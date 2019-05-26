@@ -1,12 +1,12 @@
-# android-lib
+﻿# android-lib
 [![Build Status](https://travis-ci.org/damaex/android-lib.svg?branch=master)](https://travis-ci.org/damaex/android-lib)
 
 prebuild some libs for android (unix based)
 
 ## libraries
-- openssl 1.1.1a
-- opus-1.3
-- libzip (ff55682b2cb85f3bd53813cddc7c6afb94c7572c)
+- openssl 1.1.1b
+- opus 1.3.1
+- libzip 1.5.2
 
 ## requirements
 - Android NDK (https://developer.android.com/ndk/downloads/)
@@ -15,6 +15,6 @@ prebuild some libs for android (unix based)
 
 ## build
 ```bash
-export ANDROID_NDK="/home/user/android-ndk-r19" #path to android ndk
+export ANDROID_NDK="/home/user/android-ndk-r19c" #path to android ndk
 ./build.sh
 ```

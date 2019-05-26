@@ -1,8 +1,8 @@
-#! /usr/bin/env bash
+﻿#! /usr/bin/env bash
 
 ANDROID_API=16
 ANDROID_API_64=21
-OPUS_FULL_VERSION="opus-1.3"
+OPUS_FULL_VERSION="opus-1.3.1"
 
 #create output dir
 OUTPUT_DIR="build"
