@@ -4,7 +4,7 @@
 prebuild some libs for android (unix based)
 
 ## libraries
-- openssl 1.1.1b
+- openssl 1.1.1c
 - opus 1.3.1
 - libzip 1.5.2
 
