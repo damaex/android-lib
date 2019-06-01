@@ -21,7 +21,7 @@ if [ ! ${ANDROID_NDK} ]; then
 fi
 
 #extract
-tar -xvzf ${ZIP_FULL_VERSION}.tar.gz
+tar -xzf ${ZIP_FULL_VERSION}.tar.gz
 
 #move to zip folder
 cd ${ZIP_FULL_VERSION};
