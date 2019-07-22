@@ -15,6 +15,6 @@ prebuild some libs for android (unix based)
 
 ## build
 ```bash
-export ANDROID_NDK="/home/user/android-ndk-r19c" #path to android ndk
+export ANDROID_NDK="/home/user/android-ndk-r20" #path to android ndk
 ./build.sh
 ```
