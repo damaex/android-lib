@@ -3,10 +3,15 @@
 
 prebuild some libs for android (unix based)
 
+architectures: `android-arm`, `android-arm64`, `android-x86`, `android-x86_64`
+
 ## libraries
-- openssl 1.1.1d
-- opus 1.3.1
-- libzip 1.5.2
+
+| library | version |
+| ------- | ------- |
+| openssl | 1.1.1d  |
+| opus    | 1.3.1   |
+| libzip  | 1.5.2   |
 
 ## requirements
 - Android NDK (https://developer.android.com/ndk/downloads/)
