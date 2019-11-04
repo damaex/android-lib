@@ -1,4 +1,4 @@
-﻿#! /usr/bin/env bash
+#! /usr/bin/env bash
 
 ANDROID_API=16
 ANDROID_API_64=21
