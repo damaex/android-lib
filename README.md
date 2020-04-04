@@ -9,9 +9,9 @@ architectures: `android-arm`, `android-arm64`, `android-x86`, `android-x86_64`
 
 | library | version |
 | ------- | ------- |
-| openssl | 1.1.1d  |
+| openssl | 1.1.1f  |
 | opus    | 1.3.1   |
-| libzip  | 1.5.2   |
+| libzip  | 1.6.1   |
 
 ## requirements
 - Android NDK (https://developer.android.com/ndk/downloads/)
@@ -20,6 +20,6 @@ architectures: `android-arm`, `android-arm64`, `android-x86`, `android-x86_64`
 
 ## build
 ```bash
-export ANDROID_NDK="/home/user/android-ndk-r20" #path to android ndk
+export ANDROID_NDK="/home/user/android-ndk-r21" #path to android ndk
 ./build.sh
 ```
