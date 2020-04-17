@@ -1,6 +1,6 @@
-﻿language: cpp
-dist: xenial
-sudo: required
+language: cpp
+os: linux
+dist: bionic
 addons:
   apt:
     packages:
@@ -15,8 +15,9 @@ script:
 - bash build.sh
 deploy:
   provider: releases
+  edge: true
   draft: true
-  api_key:
+  token:
     secure: nqZmxPB7bI9yMH3BfoOmnPOf0CefXMl8Wk15hwBLb/wKxxrMm51Ho0cFZJip0D7JyGfIzrFZ2p8jzLSamk9/rj2B3CJO6amhcMJKCsup7I1JSLqTXOo9IHdIip5APeDW6PAvIisiIpGvRXvHmXGzpEp8V5+YAFMRVvcle3e9LCPDPmiL5WG+7tQiWh/n8xSeK6QnNCuQX0yyhVTdFNZsTQfB8dxL0znGO6MX2nP8MoaFXGx9+UYX/R1e1xQzEE1uJUm51quI0UynSuwsk/kjJB7pBBUGxU5/n1LfJgnJh0YhtdHy3EDf/iFrQbsQkWTdERsgXihRmbwKls1QWjRFfF8A7niOjeppMoYhcBn3slI50xheyIvQG/mE/au85VlRuAaSvS88dHHUuNpQkmfWTNI8gat0cn6JGDOu6+jzrPuh/iywfb/VPZhOhzWM0mU1SygSzfIo1hbC2jXSmfzX3LT15xvtUGYIwzyIsN3lirA7Y/6zKV1lSTUHiOJDNoK9sRJ32O1JKGn1tXtRQTOv/M2CL5Gd7yZV9/bwl9EB6FAttkm5CqncO7gU3c5o0h0GxTOPDEQUBb9r3lSModNEPbMPzoXVCpGSpjPDqrva76iVMXmGpRyavL+MV9X0IfeuZ0QTRv4ocIFVMAfNSkJ2M1a7Bun/zONaPAEdrhT0Hok=
   file_glob: true
   file: build/*
