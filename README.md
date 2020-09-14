@@ -11,7 +11,7 @@ architectures: `android-arm`, `android-arm64`, `android-x86`, `android-x86_64`
 | ------- | ------- |
 | openssl | 1.1.1g  |
 | opus    | 1.3.1   |
-| libzip  | 1.6.1   |
+| libzip  | 1.7.3   |
 
 ## requirements
 - Android NDK (https://developer.android.com/ndk/downloads/)

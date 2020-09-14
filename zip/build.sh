@@ -2,7 +2,7 @@
 
 ANDROID_API=16
 ANDROID_API_64=21
-ZIP_FULL_VERSION="libzip-1.6.1"
+ZIP_FULL_VERSION="libzip-1.7.3"
 
 #create output dir
 OUTPUT_DIR="$(pwd)/build"
