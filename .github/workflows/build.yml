@@ -14,12 +14,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: recursive
-      - name: Install Android NDK Path
-        run: |
-          export ANDROID_NDK=$ANDROID_NDK_LATEST_HOME
-          "$ANDROID_NDK/ndk-build --version"
+      - name: Check NDK Path
+        run:  ls -liah $ANDROID_NDK_LATEST_HOME
       - name: Build
         run: |
+          export ANDROID_NDK=$ANDROID_NDK_LATEST_HOME
           ./build.sh
       - name: Git Release
         uses: "marvinpinto/action-automatic-releases@latest"
