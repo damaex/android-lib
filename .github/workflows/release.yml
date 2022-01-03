@@ -13,14 +13,9 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: recursive
-      - name: Install packages
+      - name: Install Android NDK Path
         run: |
-          sudo apt-get -y install build-essential cmake
-      - name: Install Android NDK
-        run: |
-          wget -q https://dl.google.com/android/repository/android-ndk-r23b-linux.zip
-          unzip -qq android-ndk-r23b-linux.zip -d $HOME
-          export ANDROID_NDK=$HOME/android-ndk-r23b
+          export ANDROID_NDK=$ANDROID_NDK_LATEST_HOME
           "$ANDROID_NDK/ndk-build --version"
       - name: Build
         run: |
