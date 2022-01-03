@@ -16,8 +16,8 @@ architectures: `android-arm`, `android-arm64`, `android-x86`, `android-x86_64`
 ## requirements
 - Android NDK (https://developer.android.com/ndk/downloads/)
 - make & cmake
-	- `sudo apt install make cmake`
-
+	- Linux: `sudo apt install make cmake`
+	- macOS: `brew install make cmake`
 ## build
 ```bash
 export ANDROID_NDK="/home/user/android-ndk-r23b" #path to android ndk
