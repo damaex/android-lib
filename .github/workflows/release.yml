@@ -16,7 +16,7 @@ jobs:
       - name: Build
         run: |
           export ANDROID_NDK=$ANDROID_NDK_LATEST_HOME
-          ./build.sh
+          bash build.sh
       - name: Git Release
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
