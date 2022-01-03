@@ -2,7 +2,7 @@
 
 ANDROID_API=16
 ANDROID_API_64=21
-ZIP_FULL_VERSION="libzip-1.7.3"
+ZIP_FULL_VERSION="libzip-1.8.0"
 
 #create output dir
 OUTPUT_DIR="$(pwd)/build"
@@ -78,11 +78,12 @@ cd ..
 
 #compress
 cd ${OUTPUT_DIR}
-tar -czvf ../../build/${ZIP_FULL_VERSION}-android.tar.gz *
+tar -czf ../../build/${ZIP_FULL_VERSION}-android.tar.gz *
 cd ..
 
 #remove folder
 rm -rf ${ZIP_FULL_VERSION}
+rm -rf ${OUTPUT_DIR}
 
 #remove archive
 rm ${ZIP_FULL_VERSION}.tar.gz

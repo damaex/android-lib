@@ -3,3 +3,4 @@
 *.h
 *.h.in
 *.pc
+.DS_Store

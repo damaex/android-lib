@@ -2,7 +2,7 @@
 
 ANDROID_API=16
 ANDROID_API_64=21
-OPENSSL_FULL_VERSION="openssl-1.1.1i"
+OPENSSL_FULL_VERSION="openssl-3.0.1"
 
 #create output dir
 OUTPUT_DIR="build"
@@ -17,7 +17,7 @@ OPENSSL_CONFIGURE_OPTIONS="no-pic no-idea no-camellia \
         no-dsa no-tls1 \
         no-rfc3779 no-whirlpool no-srp \
         no-mdc2 no-engine \
-        no-comp no-hw no-srtp -fPIC"
+        no-comp no-srtp -fPIC"
 
 #Download
 if [ ! -f "${OPENSSL_FULL_VERSION}.tar.gz" ]; then
@@ -30,9 +30,16 @@ if [ ! ${ANDROID_NDK} ]; then
 	exit 1
 fi
 
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=linux;;
+    Darwin*)    machine=darwin;;
+    *)          echo "Unsupported build OS: ${unameOut}"
+                exit 1
+esac
+
 #set ndk to path
-#export PATH=$ANDROID_NDK/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
-export PATH=$ANDROID_NDK/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
+export PATH=$ANDROID_NDK/toolchains/llvm/prebuilt/${machine}-x86_64/bin:$PATH
 
 echo "FUll Path: ${PATH}"
 
@@ -63,12 +70,12 @@ do
              ANDROID_API_VERSION=${ANDROID_API_64}
              ;;
          *)
-             echo "Unsupported build platform:${ANDROID_TARGET_PLATFORM}"
+             echo "Unsupported build platform: ${ANDROID_TARGET_PLATFORM}"
              exit 1
      esac
 	
 	#run configuration for target platform
-	./Configure ${ANDROID_TARGET_PLATFORM} -D__ANDROID_API__=${ANDROID_API_VERSION} ${OPENSSL_CONFIGURE_OPTIONS}
+	./Configure ${ANDROID_TARGET_PLATFORM} -U__ANDROID_API__ -D__ANDROID_API__=${ANDROID_API_VERSION} ${OPENSSL_CONFIGURE_OPTIONS}
 	
 	if [ $? -ne 0 ]; then
 		echo "Error executing:./Configure ${ANDROID_TARGET_PLATFORM} ${OPENSSL_CONFIGURE_OPTIONS}"
@@ -103,8 +110,9 @@ done
 
 #compress
 cd ${OUTPUT_DIR}
-tar -czvf ../../build/${OPENSSL_FULL_VERSION}-android.tar.gz *
+tar -czf ../../build/${OPENSSL_FULL_VERSION}-android.tar.gz *
 cd ..
 
 #remove archive
 rm ${OPENSSL_FULL_VERSION}.tar.gz
+rm -rf ${OUTPUT_DIR}

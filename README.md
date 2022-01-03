@@ -1,5 +1,5 @@
 ﻿# android-lib
-[![Build Status](https://travis-ci.org/damaex/android-lib.svg?branch=master)](https://travis-ci.org/damaex/android-lib)
+![Build Status](https://github.com/damaex/android-lib/actions/workflows/build.yml/badge.svg)
 
 prebuild some libs for android (unix based)
 
@@ -9,9 +9,9 @@ architectures: `android-arm`, `android-arm64`, `android-x86`, `android-x86_64`
 
 | library | version |
 | ------- | ------- |
-| openssl | 1.1.1i  |
+| openssl | 3.0.1   |
 | opus    | 1.3.1   |
-| libzip  | 1.7.3   |
+| libzip  | 1.8.0   |
 
 ## requirements
 - Android NDK (https://developer.android.com/ndk/downloads/)
@@ -20,6 +20,6 @@ architectures: `android-arm`, `android-arm64`, `android-x86`, `android-x86_64`
 
 ## build
 ```bash
-export ANDROID_NDK="/home/user/android-ndk-r22" #path to android ndk
+export ANDROID_NDK="/home/user/android-ndk-r23b" #path to android ndk
 ./build.sh
 ```

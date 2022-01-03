@@ -24,8 +24,16 @@ if [ ! ${ANDROID_NDK} ]; then
 	exit 1
 fi
 
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=linux;;
+    Darwin*)    machine=darwin;;
+    *)          echo "Unsupported build OS: ${unameOut}"
+                exit 1
+esac
+
 #set ndk to path
-export PATH=${ANDROID_NDK}/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
+export PATH=${ANDROID_NDK}/toolchains/llvm/prebuilt/${machine}-x86_64/bin:$PATH
 
 echo "FUll Path: ${PATH}"
 
@@ -102,8 +110,9 @@ done
 
 #compress
 cd ${OUTPUT_DIR}
-tar -czvf ../../build/${OPUS_FULL_VERSION}-android.tar.gz *
+tar -czf ../../build/${OPUS_FULL_VERSION}-android.tar.gz *
 cd ..
 
 #remove archive
 rm ${OPUS_FULL_VERSION}.tar.gz
+rm -rf ${OUTPUT_DIR}
