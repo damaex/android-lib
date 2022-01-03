@@ -21,7 +21,7 @@ OPENSSL_CONFIGURE_OPTIONS="no-pic no-idea no-camellia \
 
 #Download
 if [ ! -f "${OPENSSL_FULL_VERSION}.tar.gz" ]; then
-    wget https://www.openssl.org/source/${OPENSSL_FULL_VERSION}.tar.gz
+    wget -q https://www.openssl.org/source/${OPENSSL_FULL_VERSION}.tar.gz
 fi
 
 #check Android NDK

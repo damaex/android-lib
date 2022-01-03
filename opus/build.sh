@@ -15,7 +15,7 @@ OPUS_CONFIGURE_OPTIONS="--enable-float-approx --disable-shared --enable-static -
 
 #Download
 if [ ! -f "${OPUS_FULL_VERSION}.tar.gz" ]; then
-    wget https://archive.mozilla.org/pub/opus/${OPUS_FULL_VERSION}.tar.gz
+    wget -q https://archive.mozilla.org/pub/opus/${OPUS_FULL_VERSION}.tar.gz
 fi
 
 #check Android NDK

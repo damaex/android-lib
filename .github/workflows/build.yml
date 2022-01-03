@@ -19,8 +19,8 @@ jobs:
           sudo apt-get -y install build-essential cmake
       - name: Install Android NDK
         run: |
-          wget https://dl.google.com/android/repository/android-ndk-r23b-linux.zip
-          unzip -qq android-ndk-r23b-linux-x86_64.zip -d $HOME
+          wget -q https://dl.google.com/android/repository/android-ndk-r23b-linux.zip
+          unzip -qq android-ndk-r23b-linux.zip -d $HOME
           export ANDROID_NDK=$HOME/android-ndk-r23b
           "$ANDROID_NDK/ndk-build --version"
       - name: Build

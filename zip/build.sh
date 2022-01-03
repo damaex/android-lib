@@ -11,7 +11,7 @@ mkdir -p ${OUTPUT_DIR}
 
 #Download
 if [ ! -f "${ZIP_FULL_VERSION}.tar.gz" ]; then
-    wget https://libzip.org/download/${ZIP_FULL_VERSION}.tar.gz
+    wget -q https://libzip.org/download/${ZIP_FULL_VERSION}.tar.gz
 fi
 
 #check Android NDK
